@@ -286,6 +286,7 @@ class Element { public:
 	_xfer_own_cycles = _task_own_cycles = _timer_own_cycles = _child_cycles = 0;
     }
     static String read_cycles_handler(Element *, void *);
+    static String read_cycles_combined_handler(Element *, void *);
     static int write_cycles_handler(const String &, Element *, void *, ErrorHandler *);
 #endif
 

@@ -2081,6 +2081,14 @@ Element::read_cycles_handler(Element *e, void *)
     return sa.take_string();
 }
 
+String
+Element::read_cycles_combined_handler(Element *e, void *)
+{
+    StringAccum sa;
+    sa << (e->_xfer_calls + e->_timer_calls + e->_task_calls);
+    return sa.take_string();
+}
+
 int
 Element::write_cycles_handler(const String &, Element *e, void *, ErrorHandler *)
 {
@@ -2104,6 +2112,7 @@ Element::add_default_handlers(bool allow_write_config)
   add_read_handler("ocounts", read_ocounts_handler, 0);
 # if CLICK_STATS >= 2
   add_read_handler("cycles", read_cycles_handler, 0);
+  add_read_handler("cycles_combined", read_cycles_combined_handler, 0);
   add_write_handler("cycles", write_cycles_handler, 0);
 # endif
 #endif
