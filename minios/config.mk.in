@@ -18,9 +18,9 @@ CLICK_EXTRA_ELEMENT_GROUPS =
 #  MiniOS specific
 # #############################################################################
 ## Configure netfront to use netmap
-# The cureent netmap is highly unstable. Enable it only if you really
+# The current netmap is highly unstable. Enable it only if you really
 # know what you are doing
-CONFIG_NETMAP = n
+CONFIG_NETMAP = y
 # Pick the netmap version
 # CONFIG_NETMAP_API = 10
 
@@ -28,3 +28,5 @@ CONFIG_NETMAP = n
 CONFIG_NETFRONT_POLL = y
 # Poll timeout
 CONFIG_NETFRONT_POLLTIMEOUT = 10000
+# Use persistent grants
+CONFIG_BLKFRONT_PERSISTENT_GRANTS = y
